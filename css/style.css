@@ -1,0 +1,139 @@
+/* font-family: 'Delius Unicase', cursive; */
+/* font-family: 'Roboto', sans-serif; */
+
+/* 1. Базова картинка - 1кол 1ряд      g-item*/
+/* 2. Подвійна горизонталь - 2кол 1ряд g-item__col-dbl*/
+/* 3. Подвійна вертикаль - 1кол 2ряд   g-item__row-dbl*/
+/* 1. Full картинка - 2кол 2ряд        g-item__full*/
+
+@import url('./normalize.css');
+@import url('./vars.css');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+html, body {
+    font-family: var(--main-font-family), sans-serif;
+    min-height: 100vh;
+    font-size: var(--font-size-main);
+    color: var(--font-color);
+}
+.grid { 
+    display: grid;
+    /* grid-template-columns: 1fr; */
+    /* grid-template-rows: 2fr; */
+    grid-template-areas: 
+                         "header"
+                         "main";
+}
+.main {
+    grid-area: main;
+
+    max-width: var(--width-container);
+    margin: 120px auto;
+    border-radius: 8px;
+}
+
+.hidden {
+    display: none;
+}
+
+.title {
+    color: #000;
+    font-family: 'Delius Unicase', cursive;
+}
+.section {
+    margin-bottom: 120px;
+}
+.section__title {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.g-item {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+}
+.g-item__img {
+    border-radius: 20px;
+}
+.g-item__title {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background: linear-gradient(180deg, #eef9f917, #58686a47);
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.g-item__date {
+    color: #E0E0E0;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(auto-fit, minmax(1fr, 370px));
+    gap: 30px;
+}
+
+.g-item__col-dbl {
+    /* grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 3; */
+
+    /* grid-column: 1 / 3; 
+    grid-row: 1 / 3; */
+
+
+    grid-column: span 2; 
+    /* grid-row: span 2;  */
+}
+
+.g-item__col-sng{
+    grid-column: span 1; 
+    grid-row: span 1;
+}
+
+.g-item__col-trp{
+    grid-column: span 1;
+    grid-row: span 2;
+}
+
+.g-item__hover{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background: linear-gradient(180deg, #eef9f917, #58686a47);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.g-item__hover_img{
+    background: #E0E0E080;
+    padding: 11px;
+    box-sizing:border-box;
+    border-radius: 8px;
+}
+
+.g-item__hover_img:hover{
+    background: #f6f8f8;
+    cursor: pointer;
+    transition: 1s;
+}
+
+
+
+
+
+
